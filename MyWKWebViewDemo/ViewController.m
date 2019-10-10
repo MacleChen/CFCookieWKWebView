@@ -145,6 +145,10 @@
 - (void)handleAuthCode:(NSString *)authCode withWebView:(WKWebView *)webView {
     NSLog(@"Success: %@", authCode);
     [HWCookiesManager saveCookies:self.webView handle:nil];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Tip" message:authCode preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"sure" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:true completion:nil];
 }
 
 @end
